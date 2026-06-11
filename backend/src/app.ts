@@ -1,17 +1,18 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
-// import cors from 'cors';
+import cors from 'cors';
+import connectDB from './config/db';
 
 
 const app = express();
 
 // Middleware
-// app.use(cors());
-// app.use(express.json());
+app.use(cors());
+app.use(express.json());
 
-// Database Connection
-// connectDB();
+// Database
+connectDB();
 
 // Routes
 app.get('/', (req: Request, res: Response) => {
