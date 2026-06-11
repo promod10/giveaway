@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import cors from 'cors';
 import connectDB from './config/db';
+import giveawayRoutes from './routes/giveawayRoutes';
 
 
 const app = express();
@@ -15,8 +16,6 @@ app.use(express.json());
 connectDB();
 
 // Routes
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, World!');
-});
+app.use('/api/giveaway', giveawayRoutes);
 
 export default app;
