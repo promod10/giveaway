@@ -16,6 +16,9 @@ app.use(express.json());
 connectDB();
 
 // Routes
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).json({ message: 'Universal Giveaway Picker API is active. Access frontend at http://localhost:5173' });
+});
 app.use('/api/giveaway', giveawayRoutes);
 
 export default app;
